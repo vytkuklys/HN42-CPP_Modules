@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:03:22 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/05 19:10:39 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/10 20:55:05 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ public:
     void operator=(Fixed const &fixed);
     int getRawBits(void) const;
     void setRawBits(int const raw);
-    
     int toInt() const;
     float toFloat() const;
 };

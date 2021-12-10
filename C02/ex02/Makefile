@@ -6,7 +6,7 @@
 #    By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 05:12:59 by vkuklys           #+#    #+#              #
-#    Updated: 2021/12/05 16:51:27 by vkuklys          ###   ########.fr        #
+#    Updated: 2021/12/10 20:58:42 by vkuklys          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ GREEN	= \033[32m
 YELLOW	= \033[33m
 
 # Folders and Names
-NAME		= zombie
+NAME		= fixed
 SRCSDIR		= .
 OBJSDIR		= objs
 INCLUDES	= .
