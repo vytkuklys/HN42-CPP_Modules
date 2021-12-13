@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:01:27 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/10 21:58:35 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/11 14:22:19 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,9 @@ int main(void)
     {
         std::cout << "c == d" << std::endl;
     }
+    std::cout << a << " + " << c << " = " << a + c << std::endl;
+    std::cout << a << " - " << b << " = " << a - b << std::endl;
+    std::cout << c << " * " << b << " = " << c * b << std::endl;
+    std::cout << b << " / " << a << " = " << b / a << std::endl;
     return 0;
 }
