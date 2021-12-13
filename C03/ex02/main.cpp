@@ -6,24 +6,27 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 15:07:17 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/06 20:25:28 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/12 15:12:15 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
-#include "ScavTrap.hpp"
 
 int main(void)
 {
-    ClapTrap t1("Eu");
-    t1.attack("reka");
-    std::cout << "\n";
-    ScavTrap t2("Creed");
-    t2.guardGate();
-    t2.attack("Bratton");
-    std::cout << "\n";
-    FragTrap test("Michael Scott");
-
+    FragTrap test("Tetris");
+    test.attack("Puzzle");
+    test.takeDamage(5);
+    test.beRepaired(5);
     test.highFivesGuys();
+
+    std::cout << std::endl;
+    // FragTrap test2 = test;
+    // FragTrap test2;
+    // FragTrap test2(test);
+    // test2.attack("Puzzle");
+    // test2.takeDamage(5);
+    // test2.beRepaired(5);
+    // test2.highFivesGuys();
     return (0);
 }

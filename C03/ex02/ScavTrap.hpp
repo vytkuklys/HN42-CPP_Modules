@@ -6,20 +6,26 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 17:03:10 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/06 18:24:17 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/12 16:00:01 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <iostream>
 #include "ClapTrap.hpp"
 
 class ScavTrap : ClapTrap
 {
 private:
+    bool Gate_keeper_mode;
 public:
+    ScavTrap();
     ScavTrap(std::string name);
-    ~ScavTrap();
+    ScavTrap(const ScavTrap &original);
+    virtual ~ScavTrap();
 
+    void operator=(const ScavTrap &original);
     void attack(std::string const & target);
     void guardGate();
+    bool getGateKeeperMode() const;
 };

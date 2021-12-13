@@ -6,17 +6,37 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 17:04:55 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/06 20:14:58 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/12 15:18:05 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap() : ClapTrap()
 {
-    setHitPoints(100);
-    setAttackDamage(100);
-    setEnergyPoints(30);
+    ClapTrap::Name = "_clap_trap";
+    ClapTrap::Hit_points = 100;
+    ClapTrap::Energy_points = 100;
+    ClapTrap::Attack_damage = 30;
+    std::cout << "FragTrap constructor was called" << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap &original) : ClapTrap(original)
+{
+    std::cout << "FragTrap constructor was called" << std::endl;
+}
+
+void FragTrap::operator=(const FragTrap &original)
+{
+    ClapTrap::operator=(original);
+}
+
+FragTrap::FragTrap(std::string name)
+{
+    ClapTrap::Name = name + "_clap_trap";
+    ClapTrap::Hit_points = 100;
+    ClapTrap::Energy_points = 100;
+    ClapTrap::Attack_damage = 30;
     std::cout << "FragTrap constructor was called" << std::endl;
 }
 

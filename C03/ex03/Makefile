@@ -6,7 +6,7 @@
 #    By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 05:12:59 by vkuklys           #+#    #+#              #
-#    Updated: 2021/12/06 20:44:38 by vkuklys          ###   ########.fr        #
+#    Updated: 2021/12/07 18:57:45 by vkuklys          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRCS		= main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp
 
 # Compiler options
 CC			= clang++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CFLAGS		= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 
 ###################################################
 # The rest is done by the MakeFile automatically, #
