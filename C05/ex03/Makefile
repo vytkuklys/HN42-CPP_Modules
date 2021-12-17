@@ -6,7 +6,7 @@
 #    By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 05:12:59 by vkuklys           #+#    #+#              #
-#    Updated: 2021/12/15 20:52:00 by vkuklys          ###   ########.fr        #
+#    Updated: 2021/12/15 23:11:41 by vkuklys          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCSDIR		= .
 OBJSDIR		= objs
 INCLUDES	= .
 
-SRCS		= main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+SRCS		= main.cpp Bureaucrat.cpp Intern.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
 # Compiler options
 CC			= clang++

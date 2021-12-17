@@ -6,12 +6,14 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:25:10 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/16 18:47:56 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/16 18:48:48 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
+class Bureaucrat;
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -53,7 +55,9 @@ public:
     Bureaucrat operator--();
     Bureaucrat operator--(int i);
     std::string getName() const;
+
     void signForm(int i, const std::string &form) const;
+    void executeForm(Form const &form);    
     int getGrade() const;
 };
 

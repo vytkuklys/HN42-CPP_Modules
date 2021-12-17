@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/14 21:39:53 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/15 20:52:34 by vkuklys          ###   ########.fr       */
+/*   Created: 2021/12/15 22:23:45 by vkuklys           #+#    #+#             */
+/*   Updated: 2021/12/16 19:10:37 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+// class Intern;
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <iostream>
-#include <cstdlib>
-#include "Form.hpp"
 
-class RobotomyRequestForm : public Form
+class Intern
 {
-private:
 public:
-    RobotomyRequestForm();
-    RobotomyRequestForm(const RobotomyRequestForm &original);
-    RobotomyRequestForm(const std::string &target);
-    ~RobotomyRequestForm();
+    Intern();
+    Intern(const Intern &original);
+    ~Intern();
 
-    RobotomyRequestForm &operator=(const RobotomyRequestForm &original);
-    virtual void    callAction() const;
-    int       getRandom() const;
+    Intern &operator=(const Intern &original);
+    Form *makeForm(const std::string &form, const std::string &target);
 };

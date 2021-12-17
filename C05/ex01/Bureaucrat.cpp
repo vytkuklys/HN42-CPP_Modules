@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:32:23 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/14 21:16:53 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/16 18:42:52 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,10 @@ Bureaucrat::GradeTooLowException &Bureaucrat::GradeTooLowException::operator=(co
     }
     return (*this);
 }
+
+Bureaucrat::GradeTooLowException::~GradeTooLowException()_NOEXCEPT{}
+
+Bureaucrat::GradeTooHighException::~GradeTooHighException()_NOEXCEPT{}
 
 Bureaucrat::GradeTooHighException::GradeTooHighException()
 {

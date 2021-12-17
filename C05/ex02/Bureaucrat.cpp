@@ -6,28 +6,20 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:32:23 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/14 21:16:53 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/16 18:46:01 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include "Bureaucrat.hpp"
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSTRUCTORS/DESTRUCTOR/OVERLOADS
 Bureaucrat::Bureaucrat() : Name("No name")
 {
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &original) : Name(original.getName()), Grade(original.getGrade())
 {
-}
-
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &original)
-{
-    if (this != &original)
-    {
-        Grade = original.Grade;
-    }
-    return (*this);
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int const grade) : Name(name)
@@ -45,34 +37,14 @@ Bureaucrat::Bureaucrat(const std::string &name, int const grade) : Name(name)
 
 Bureaucrat::~Bureaucrat() {}
 
-std::string Bureaucrat::getName() const
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &original)
 {
-    return (Name);
-}
-
-int Bureaucrat::getGrade() const
-{
-    return (Grade);
-}
-
-void Bureaucrat::signForm(int i, const std::string &form) const
-{
-    switch (i)
+    if (this != &original)
     {
-    case 0:
-        std::cout << "* " << getName() << " signs '"  << form << "' successfully!" << std::endl;
-        break;
-    case 1:
-        std::cout << "* " << getName() << " cannot sign '"  << form << "' because form is invalid!" << std::endl;
-        break;
-    case 2:
-        std::cout << "* " << getName() << " cannot sign '"  << form << "' because grade is too low!" << std::endl;
-        break;
-    default:
-        std::cout << "";
+        Grade = original.Grade;
     }
+    return (*this);
 }
-
 Bureaucrat Bureaucrat::operator++()
 {
     if (Grade - 1 < 1)
@@ -139,6 +111,46 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &Bureaucrat)
     return (out);
 }
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~GETTERS
+
+std::string Bureaucrat::getName() const
+{
+    return (Name);
+}
+
+int Bureaucrat::getGrade() const
+{
+    return (Grade);
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~METHOD IMPLEMENTATIONS
+
+void Bureaucrat::signForm(int i, const std::string &form) const
+{
+    switch (i)
+    {
+    case 0:
+        std::cout << "* " << getName() << " signs '" << form << "' successfully!" << std::endl;
+        break;
+    case 1:
+        std::cout << "* " << getName() << " cannot sign '" << form << "' because form is invalid!" << std::endl;
+        break;
+    case 2:
+        std::cout << "* " << getName() << " cannot sign '" << form << "' because grade is too low!" << std::endl;
+        break;
+    default:
+        std::cout << "";
+    }
+}
+
+void Bureaucrat::executeForm(Form const &form)
+{
+    form.execute(*this);
+    std::cout << this->getName() << " executes " << form.getName() << std::endl;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~EXCEPTION CLASSES
+
 Bureaucrat::GradeTooLowException::GradeTooLowException()
 {
     std::string execptionMessage("Given grade is too low for this operation. Grade has to be in the [1 - 150] range");
@@ -168,6 +180,10 @@ Bureaucrat::GradeTooLowException &Bureaucrat::GradeTooLowException::operator=(co
     }
     return (*this);
 }
+
+Bureaucrat::GradeTooLowException::~GradeTooLowException()_NOEXCEPT{}
+
+Bureaucrat::GradeTooHighException::~GradeTooHighException()_NOEXCEPT{}
 
 Bureaucrat::GradeTooHighException::GradeTooHighException()
 {

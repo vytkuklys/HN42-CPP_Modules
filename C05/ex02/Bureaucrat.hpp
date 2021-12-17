@@ -6,12 +6,14 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:25:10 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/14 21:14:13 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/16 18:47:16 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
+class Bureaucrat;
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -31,7 +33,8 @@ public:
         GradeTooLowException();
         GradeTooLowException(const GradeTooLowException &original);
         GradeTooLowException(const int grade);
-    
+        ~GradeTooLowException()_NOEXCEPT;
+
         GradeTooLowException &operator=(const GradeTooLowException &original);
     };
 
@@ -41,7 +44,8 @@ public:
         GradeTooHighException();
         GradeTooHighException(const GradeTooHighException &original);
         GradeTooHighException(const int grade);
-    
+        ~GradeTooHighException()_NOEXCEPT;
+
         GradeTooHighException &operator=(const GradeTooHighException &original);
         void printshit();
     };
@@ -51,7 +55,9 @@ public:
     Bureaucrat operator--();
     Bureaucrat operator--(int i);
     std::string getName() const;
+
     void signForm(int i, const std::string &form) const;
+    void executeForm(Form const &form);    
     int getGrade() const;
 };
 

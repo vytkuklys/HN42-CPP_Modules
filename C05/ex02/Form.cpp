@@ -6,18 +6,18 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:32:23 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/15 18:24:04 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/16 18:57:03 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include "Form.hpp"
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSTRUCTORS/DESTRUCTOR/OVERLOADS
-Form::Form() : Name("No name"), IsSigned(false), ExecutingGrade(0), SigningGrade(0)
+Form::Form() : Name("Name undefined"), Target("Target undefined"), IsSigned(false), ExecutingGrade(0), SigningGrade(0)
 {
 }
 
-Form::Form(const Form &original) : Name(original.getName()), IsSigned(original.IsSigned), ExecutingGrade(original.getExecutingGrade()), SigningGrade(original.getSigningGrade())
+Form::Form(const Form &original) : Name(original.getName()), Target(original.getTarget()), IsSigned(original.IsSigned), ExecutingGrade(original.getExecutingGrade()), SigningGrade(original.getSigningGrade())
 {
 }
 
@@ -35,7 +35,19 @@ Form &Form::operator=(const Form &original)
     return (*this);
 }
 
-Form::Form(const std::string &name, int const signing_grade, int const executing_grade) : Name(name), IsSigned(false), ExecutingGrade(executing_grade), SigningGrade(signing_grade)
+Form::Form(const std::string &name, int const signing_grade, int const executing_grade) : Name(name), Target("Target undefined"), IsSigned(false), ExecutingGrade(executing_grade), SigningGrade(signing_grade)
+{
+    if (signing_grade < 1 || executing_grade < 1)
+    {
+        throw Form::GradeTooHighException();
+    }
+    if (signing_grade > 150 || executing_grade > 150)
+    {
+        throw Form::GradeTooLowException();
+    }
+}
+
+Form::Form(const std::string &name, const std::string &target, int const signing_grade, int const executing_grade) : Name(name), Target(target), IsSigned(false), ExecutingGrade(executing_grade), SigningGrade(signing_grade)
 {
     if (signing_grade < 1 || executing_grade < 1)
     {
@@ -54,6 +66,12 @@ std::string Form::getName() const
 {
     return (Name);
 }
+
+std::string Form::getTarget() const
+{
+    return (Target);
+}
+
 
 int Form::getSigningGrade() const
 {
@@ -94,7 +112,7 @@ void Form::beSigned(Bureaucrat &Mr)
     IsSigned = true;
 }
 
-void Form::execute(Bureaucrat const &executor)
+void Form::execute(Bureaucrat const &executor) const
 {
     if (!getIsSigned())
     {
@@ -102,7 +120,7 @@ void Form::execute(Bureaucrat const &executor)
     }
     if (executor.getGrade() > getExecutingGrade())
     {
-        throw Form::GradeTooLowException(getExecutingGrade(), executor.getGrade());
+        throw Form::GradeTooLowException(executor.getGrade(), getExecutingGrade());
     }
     callAction();
 }
@@ -151,6 +169,10 @@ Form::GradeTooLowException::GradeTooLowException(std::string exception_message)
     throw(std::invalid_argument(exception_message));
 }
 
+Form::GradeTooLowException::~GradeTooLowException()_NOEXCEPT{}
+
+Form::GradeTooHighException::~GradeTooHighException()_NOEXCEPT{}
+
 Form::GradeTooHighException::GradeTooHighException()
 {
     std::string execptionMessage("Given grade is too high. Grade has to be in the [1 - 150] range");
@@ -187,6 +209,8 @@ Form::GradeTooHighException &Form::GradeTooHighException::operator=(const GradeT
     }
     return (*this);
 }
+
+Form::UnsignedFormException::~UnsignedFormException()_NOEXCEPT{}
 
 Form::UnsignedFormException::UnsignedFormException()
 {

@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:25:10 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/13 18:58:16 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/16 18:42:01 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,16 @@ private:
     const std::string Name;
     int Grade;
 
+    Bureaucrat operator++();
+    Bureaucrat operator++(int i);
+    Bureaucrat operator--();
+    Bureaucrat operator--(int i);
+
 public:
     Bureaucrat();
     Bureaucrat(const Bureaucrat &original);
     Bureaucrat(const std::string &name, int const grade);
-    ~Bureaucrat();
+    virtual ~Bureaucrat();
 
     class GradeTooLowException : std::exception
     {
@@ -30,27 +35,26 @@ public:
         GradeTooLowException();
         GradeTooLowException(const GradeTooLowException &original);
         GradeTooLowException(const int grade);
-    
+        ~GradeTooLowException()_NOEXCEPT;
         GradeTooLowException &operator=(const GradeTooLowException &original);
     };
 
-    class GradeTooHighException: std::exception
+    class GradeTooHighException : std::exception
     {
     public:
         GradeTooHighException();
         GradeTooHighException(const GradeTooHighException &original);
         GradeTooHighException(const int grade);
-    
+        ~GradeTooHighException()_NOEXCEPT;
+
         GradeTooHighException &operator=(const GradeTooHighException &original);
         void printshit();
     };
     Bureaucrat &operator=(const Bureaucrat &original);
-    Bureaucrat operator++();
-    Bureaucrat operator++(int i);
-    Bureaucrat operator--();
-    Bureaucrat operator--(int i);
     std::string getName() const;
     int getGrade() const;
+    void increment();
+    void decrement();
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &fixed);

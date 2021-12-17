@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:25:10 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/17 23:55:25 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/17 23:55:42 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,12 @@ public:
     Form &operator=(const Form &original);
     std::string getName() const;
     std::string getTarget() const;
+    void execute(Bureaucrat const &executor) const;
+    void beSigned(Bureaucrat &Mr);
     bool getIsSigned() const;
     int getExecutingGrade() const;
     int getSigningGrade() const;
     void setIsSigned(bool val);
-  
-    void execute(Bureaucrat const &executor) const;
-    void beSigned(Bureaucrat &Mr);
     virtual void callAction() const = 0;
 
     class GradeTooLowException : std::exception

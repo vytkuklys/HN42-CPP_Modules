@@ -6,30 +6,20 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:32:23 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/16 18:42:26 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/16 18:46:21 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include "Bureaucrat.hpp"
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSTRUCTORS/OVERLAODS/DESTRUCTOR
-
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONSTRUCTORS/DESTRUCTOR/OVERLOADS
 Bureaucrat::Bureaucrat() : Name("No name")
 {
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &original) : Name(original.getName()), Grade(original.getGrade())
 {
-}
-
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &original)
-{
-    if (this != &original)
-    {
-        Grade = original.Grade;
-    }
-    return (*this);
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int const grade) : Name(name)
@@ -47,6 +37,14 @@ Bureaucrat::Bureaucrat(const std::string &name, int const grade) : Name(name)
 
 Bureaucrat::~Bureaucrat() {}
 
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &original)
+{
+    if (this != &original)
+    {
+        Grade = original.Grade;
+    }
+    return (*this);
+}
 Bureaucrat Bureaucrat::operator++()
 {
     if (Grade - 1 < 1)
@@ -112,7 +110,8 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &Bureaucrat)
     out << Bureaucrat.getName() << ", bureaucrat grade " << Bureaucrat.getGrade();
     return (out);
 }
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~GETTERS
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~GETTERS
 
 std::string Bureaucrat::getName() const
 {
@@ -124,7 +123,33 @@ int Bureaucrat::getGrade() const
     return (Grade);
 }
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~EXCEPTIONS
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~METHOD IMPLEMENTATIONS
+
+void Bureaucrat::signForm(int i, const std::string &form) const
+{
+    switch (i)
+    {
+    case 0:
+        std::cout << "* " << getName() << " signs '" << form << "' successfully!" << std::endl;
+        break;
+    case 1:
+        std::cout << "* " << getName() << " cannot sign '" << form << "' because form is invalid!" << std::endl;
+        break;
+    case 2:
+        std::cout << "* " << getName() << " cannot sign '" << form << "' because grade is too low!" << std::endl;
+        break;
+    default:
+        std::cout << "";
+    }
+}
+
+void Bureaucrat::executeForm(Form const &form)
+{
+    form.execute(*this);
+    std::cout << this->getName() << " executes " << form.getName() << std::endl;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~EXCEPTION CLASSES
 
 Bureaucrat::GradeTooLowException::GradeTooLowException()
 {
@@ -188,16 +213,4 @@ Bureaucrat::GradeTooHighException &Bureaucrat::GradeTooHighException::operator=(
     {
     }
     return (*this);
-}
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~METHODS IMPLEMENTATIONS
-
-void Bureaucrat::increment()
-{
-    ++*this;
-}
-
-void Bureaucrat::decrement()
-{
-    --*this;
 }

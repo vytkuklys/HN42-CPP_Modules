@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:25:10 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/14 20:54:21 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/16 18:50:48 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ public:
         GradeTooLowException(const GradeTooLowException &original);
         GradeTooLowException(const int grade, const int valid);
         GradeTooLowException(const int grade);
+        ~GradeTooLowException()_NOEXCEPT;
 
         GradeTooLowException &operator=(const GradeTooLowException &original);
     };
@@ -48,6 +49,7 @@ public:
         GradeTooHighException(const GradeTooHighException &original);
         GradeTooHighException(const int grade, const int valid);
         GradeTooHighException(const int grade);
+        ~GradeTooHighException()_NOEXCEPT;
 
         GradeTooHighException &operator=(const GradeTooHighException &original);
         void printshit();
