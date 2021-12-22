@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:25:10 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/17 23:55:42 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/22 17:18:11 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ public:
         ~GradeTooHighException()_NOEXCEPT;
 
         GradeTooHighException &operator=(const GradeTooHighException &original);
-        void printshit();
     };
 
     class UnsignedFormException : std::exception

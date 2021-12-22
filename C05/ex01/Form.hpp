@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:25:10 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/16 18:50:48 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/22 17:18:07 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ public:
         ~GradeTooHighException()_NOEXCEPT;
 
         GradeTooHighException &operator=(const GradeTooHighException &original);
-        void printshit();
     };
     int getSigningGrade() const;
     int getExecutingGrade() const;
