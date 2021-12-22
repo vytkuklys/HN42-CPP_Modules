@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 21:11:15 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/22 18:02:44 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/22 21:04:12 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,7 +215,6 @@ bool Converter::isIntWithinRange(const std::string &input)
         if (isdigit(input[i]))
         {
             tmp = tmp * 10 + (input[i] - '0');
-            std::cout << tmp << std::endl; 
         }
         if (tmp >= 214748364 && ((input[i + 1] > 56 || (input[0] != '-' && input[i + 1] > 55)) || len - i > 2))
         {

@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 19:50:26 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/22 20:39:52 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/22 21:02:53 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ Base *generate(void)
 }
 void identify(Base *p)
 {
-    Base *ptrs[] = {new A(), new B(), new C()};
     A *a = dynamic_cast<A *>(p);
     B *b = dynamic_cast<B *>(p);
     C *c = dynamic_cast<C *>(p);
