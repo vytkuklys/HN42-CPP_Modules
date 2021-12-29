@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 17:24:32 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/25 23:48:19 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/29 23:43:33 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int main()
 {
     Span sp = Span(10000);
     sp.addNumber(MAX_INT);
-    sp.addNumbers(2000, 0);
-    sp.addNumbers(2000, 20);
-    sp.addNumbers(2000, 30);
-    sp.addNumbers(2000, 40);
-    sp.addNumbers(1999, MIN_INT);
+    sp.addNumber(2000, 0);
+    sp.addNumber(2000, 20);
+    sp.addNumber(2000, 30);
+    sp.addNumber(2000, 40);
+    sp.addNumber(1999, MIN_INT);
     std::cout << "Shortest span :  " << sp.shortestSpan() << std::endl;
     std::cout << "Longest span  :  " << sp.longestSpan() << std::endl;
 
@@ -45,7 +45,7 @@ int main()
     try
     {
         std::cout << "Add 2 extra numbers with only 1 slot left: ";
-        sp_exceptions.addNumbers(2, 2);
+        sp_exceptions.addNumber(2, 2);
     }
     catch (const std::exception &e)
     {
@@ -53,8 +53,9 @@ int main()
     }
     try
     {
-        std::cout << "Add second number: \n";
+        std::cout << "Add second number: ";
         sp_exceptions.addNumber(4);
+        std::cout << " Added\n";
         std::cout << "Add third number : ";
         sp_exceptions.addNumber(6);
     }

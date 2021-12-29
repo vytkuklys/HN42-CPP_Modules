@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 01:08:04 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/29 02:46:04 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/29 23:44:52 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <deque>
 
 template <class T>
-class MutantStack : public std::stack<int>
+class MutantStack : public std::stack<T>
 {
 public:
     typedef std::stack<T> Stack;

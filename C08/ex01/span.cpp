@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 17:24:44 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/25 23:42:41 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/29 23:42:21 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void Span::addNumber(const int value)
     it++;
 }
 
-void Span::addNumbers(const unsigned int n, const int value)
+void Span::addNumber(const unsigned int n, const int value)
 {
     if (!N || !n || it == Numbers.end() || it - Numbers.begin() + n > N)
     {

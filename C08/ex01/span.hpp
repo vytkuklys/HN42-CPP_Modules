@@ -6,10 +6,11 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 17:24:51 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/25 23:38:42 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/29 23:51:31 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <iostream>
 #include <vector>
 #define MAX_INT 2147483647
@@ -31,11 +32,11 @@ public:
     Span &operator=(const Span &assignment);
 
     void addNumber(const int value);
-    void addNumbers(const unsigned int n, const int value);
+    void addNumber(const unsigned int n, const int value);
     unsigned int shortestSpan();
     unsigned int longestSpan();
 
-    class InvalidOperationException : std::exception
+    class InvalidOperationException : public std::exception
     {
     public:
         InvalidOperationException();
