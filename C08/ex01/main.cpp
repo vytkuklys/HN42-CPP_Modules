@@ -6,24 +6,23 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 17:24:32 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/29 23:43:33 by vkuklys          ###   ########.fr       */
+/*   Updated: 2022/01/02 11:27:52 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "span.hpp"
-
 int main()
 {
     Span sp = Span(10000);
     sp.addNumber(MAX_INT);
     sp.addNumber(2000, 0);
-    sp.addNumber(2000, 20);
+    sp.addNumber(2000, -1);
     sp.addNumber(2000, 30);
-    sp.addNumber(2000, 40);
+    sp.addNumber(2000, -40);
     sp.addNumber(1999, MIN_INT);
+
     std::cout << "Shortest span :  " << sp.shortestSpan() << std::endl;
     std::cout << "Longest span  :  " << sp.longestSpan() << std::endl;
-
     Span sp_exceptions(2);
     sp_exceptions.addNumber(1);
     try
@@ -53,10 +52,10 @@ int main()
     }
     try
     {
-        std::cout << "Add second number: ";
+        std::cout << "Add second number (2 slots): ";
         sp_exceptions.addNumber(4);
         std::cout << " Added\n";
-        std::cout << "Add third number : ";
+        std::cout << "Add third number (2 slots): ";
         sp_exceptions.addNumber(6);
     }
     catch (const std::exception &e)

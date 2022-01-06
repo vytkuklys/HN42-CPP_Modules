@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 17:24:44 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/29 23:42:21 by vkuklys          ###   ########.fr       */
+/*   Updated: 2022/01/02 11:26:23 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void Span::addNumber(const int value)
 {
     if (N == 0 || it == Numbers.end())
     {
-        Span::InvalidOperationException();
+        throw std::length_error("Exception: Invalid operation.");
     }
     *it = value;
     it++;
@@ -92,7 +92,7 @@ void Span::addNumber(const unsigned int n, const int value)
 {
     if (!N || !n || it == Numbers.end() || it - Numbers.begin() + n > N)
     {
-        Span::InvalidOperationException();
+        throw std::length_error("Exception: Invalid operation.");
     }
     std::fill(it, it + n, value);
     it += n;
@@ -100,26 +100,28 @@ void Span::addNumber(const unsigned int n, const int value)
 
 unsigned int Span::shortestSpan()
 {
-    unsigned int span;
-    int tmp;
     if (N < 2 || it - Numbers.begin() < 2)
     {
-        Span::InvalidOperationException();
+        throw std::length_error("Exception: Invalid operation.");
     }
-    std::pair<std::vector<int>::iterator, std::vector<int>::iterator> minMax = std::minmax_element(Numbers.begin(), Numbers.end());
-    if (*minMax.first == *minMax.second)
+    std::set<int> s(Numbers.begin(), Numbers.end());
+    if (s.size() <= 2)
     {
-        return 0;
-    }
-    tmp = *minMax.second;
-    for (std::vector<int>::iterator i = Numbers.begin(); i < Numbers.end(); i++)
-    {
-        if (*i != *minMax.first && tmp > *i)
+        if (s.size() == 2)
         {
-            tmp = *i;
+            return *(std::upper_bound(s.begin(), s.end(), *(s.begin()))) - *s.begin();
+        }
+        throw std::length_error("Exception: Invalid operation.");
+    }
+    unsigned int span = *(std::upper_bound(s.begin(), s.end(), *(s.begin()))) - *s.begin();
+    for ( std::set<int>::iterator itr = s.begin(); itr != s.end();  itr++)
+    {
+        int upper = *(std::upper_bound(s.begin(), s.end(), *(itr)));
+        if (static_cast<unsigned int>(upper - *itr) < span)
+        {
+            span = upper - *itr;
         }
     }
-    span = tmp - *minMax.first;
     return (span);
 }
 
@@ -128,39 +130,10 @@ unsigned int Span::longestSpan()
     unsigned int span;
     if (N < 2 || it - Numbers.begin() < 2)
     {
-        Span::InvalidOperationException();
+        throw std::length_error("Exception: Invalid operation.");
     }
     std::pair<std::vector<int>::iterator, std::vector<int>::iterator> minMax;
     minMax = std::minmax_element(Numbers.begin(), Numbers.end());
     span = *minMax.second - *minMax.first;
     return (span);
 }
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~EXCEPTION
-
-Span::InvalidOperationException::~InvalidOperationException()_NOEXCEPT{}
-
-Span::InvalidOperationException::InvalidOperationException()
-{
-    std::string execptionMessage("Exception: Invalid operation.");
-    throw(std::invalid_argument(execptionMessage));
-}
-
-Span::InvalidOperationException::InvalidOperationException(const InvalidOperationException &original)
-{
-    if (this != &original)
-    {
-        std::string execptionMessage("Exception: Invalid operation.");
-        throw(std::invalid_argument(execptionMessage));
-        *this = original;
-    }
-}
-
-Span::InvalidOperationException &Span::InvalidOperationException::operator=(const InvalidOperationException &original)
-{
-    if (this != &original)
-    {
-    }
-    return (*this);
-}
-

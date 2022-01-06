@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 02:13:00 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/29 23:40:43 by vkuklys          ###   ########.fr       */
+/*   Updated: 2022/01/02 11:30:07 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ int main(int, char **)
     std::vector<int> it;
     std::vector<int>::iterator ita;
     it.push_back(1);
-    it.push_back(2);
     it.push_back(3);
+    it.push_back(4);
+    it.push_back(2);
+    it.push_back(5);
     try
     {
         ita = easyfind(it, 2);
