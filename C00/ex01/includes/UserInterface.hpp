@@ -6,12 +6,13 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 07:03:44 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/01 07:40:08 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/01 08:24:03 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <iostream>
-// #include <iomanip>
+#include <iostream>
+#include <iomanip>
+#include <stdlib.h>
 #include "Contacts.hpp"
 
 class UserInterface

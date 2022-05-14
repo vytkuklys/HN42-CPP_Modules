@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 22:37:10 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/06 23:05:46 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/12 16:04:44 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 #define ANIMAL_HPP
 #include <iostream>
 
-class Animal{
-  protected:
+class Animal
+{
+protected:
   std::string type;
-  public:
-  Animal();  
+
+public:
+  Animal();
+  Animal(const Animal &original);
   virtual ~Animal();
+
+  void operator=(const Animal &original);
   virtual void makeSound() const;
   std::string getType() const;
 };

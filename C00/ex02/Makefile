@@ -6,16 +6,16 @@
 #    By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 05:12:59 by vkuklys           #+#    #+#              #
-#    Updated: 2021/11/30 08:03:14 by vkuklys          ###   ########.fr        #
+#    Updated: 2021/12/01 08:31:27 by vkuklys          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Color codes
 
 RESET	= \033[0m
+BLUE	= \033[31m
 GREEN	= \033[32m
 YELLOW	= \033[33m
-BLUE	= \033[34m
 
 # Folders and Names
 NAME		= account

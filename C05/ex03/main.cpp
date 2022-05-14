@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:47:17 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/17 23:54:56 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/16 19:19:42 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 int main()
 {
     Intern someRandomIntern;
-    Bureaucrat *test = new Bureaucrat("Buro Man", 1);
-        // Bureaucrat *test = new Bureaucrat("Buro Man", 25);
-        // Bureaucrat *test = new Bureaucrat("Buro Man", 100);
-    Form* form = someRandomIntern.makeForm("presidential pardon", "Miss Jackson");
-    Form* form1 = someRandomIntern.makeForm("robotomy request", "Cop");
-    Form* form2 = someRandomIntern.makeForm("shrubbery creation", "Home");
     
 
     try
     {
+        Bureaucrat *test = new Bureaucrat("Buro Man", 1);
+        // Bureaucrat *test = new Bureaucrat("Buro Man", 25);
+        // Bureaucrat *test = new Bureaucrat("Buro Man", 100);
+        Form* form = someRandomIntern.makeForm("presidential pardon", "Miss Jackson");
+        Form* form1 = someRandomIntern.makeForm("robotomy request", "Cop");
+        Form* form2 = someRandomIntern.makeForm("shrubbery creation", "Home");
 
         // Form* nameInvalid = someRandomIntern.makeForm("invalid form name", "Miss Jackson");
         // nameInvalid->beSigned(*test);
@@ -41,9 +41,5 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-    delete test;
-    delete form;
-    delete form1;
-    delete form2;
     return (0);
 }

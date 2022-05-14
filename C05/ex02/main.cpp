@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:47:17 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/17 23:53:57 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/16 19:08:44 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 int main()
 {
     // Bureaucrat *test = new Bureaucrat("Buro Man", 150);
-    // Bureaucrat *test = new Bureaucrat("Buro Man", 25);
-    Bureaucrat *test = new Bureaucrat("Buro Man", 1);
+    Bureaucrat *test = new Bureaucrat("Buro Man", 25);
+    // Bureaucrat *test = new Bureaucrat("Buro Man", 1);
     Form *form = new ShrubberyCreationForm("File_not_found");
     Form *form1 = new RobotomyRequestForm("Cop");
     Form *form2 = new PresidentialPardonForm("Miss Jackson");
@@ -37,9 +37,5 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-    delete test;
-    delete form;
-    delete form1;
-    delete form2;
     return (0);
 }

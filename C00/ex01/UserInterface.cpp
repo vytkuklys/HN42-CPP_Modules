@@ -6,13 +6,14 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:33:26 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/01 07:44:25 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/01 08:38:52 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/UserInterface.hpp"
 
-UserInterface::UserInterface(void){
+UserInterface::UserInterface(void)
+{
     contact_list = Contacts.getContacts();
 }
 
@@ -57,8 +58,12 @@ void UserInterface::showPrompt()
 void UserInterface::displayContacts()
 {
     int nbContacts = Contacts.getNbContacts();
-    std::cout << "\n|" << std::setw(44) << std::setfill('-') <<"|" << std::endl;
-    std::cout << "|" << std::setw(10) << std::setfill('.') << "Id" << "|" << std::setw(10) << "First name" << "|" << std::setw(10) << "Last name" << "|" << std::setw(10) << "Nickname" << "|" <<std::endl;
+    std::cout << "\n|" << std::setw(44) << std::setfill('-') << "|" << std::endl;
+    std::cout << "|" << std::setw(10) << std::setfill('.') << "ID"
+              << "|" << std::setw(10) << "FIRST NAME"
+              << "|" << std::setw(10) << "LAST NAME"
+              << "|" << std::setw(10) << "NICKNAME"
+              << "|" << std::endl;
     for (int i = 0; i < nbContacts && i < 8; i++)
     {
         std::cout << "|" << std::setw(10) << std::setfill('.') << i + 1;
@@ -75,7 +80,8 @@ void UserInterface::displayContacts()
         }
         std::cout << "|" << std::endl;
     }
-    std::cout << "|" << std::setw(45) << std::setfill('-') <<"|\n" << std::endl;
+    std::cout << "|" << std::setw(45) << std::setfill('-') << "|\n"
+              << std::endl;
 }
 
 int UserInterface::getIndex()

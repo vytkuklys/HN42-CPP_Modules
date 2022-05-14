@@ -6,7 +6,7 @@
 #    By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/30 05:12:59 by vkuklys           #+#    #+#              #
-#    Updated: 2021/12/12 16:15:46 by vkuklys          ###   ########.fr        #
+#    Updated: 2021/12/06 23:17:24 by vkuklys          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCSDIR		= .
 OBJSDIR		= objs
 INCLUDES	= .
 
-SRCS		= main.cpp Dog.cpp Animal.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
+SRCS		= main.cpp Dog.cpp Animal.cpp Cat.cpp Brain.cpp
 
 # Compiler options
 CC			= clang++

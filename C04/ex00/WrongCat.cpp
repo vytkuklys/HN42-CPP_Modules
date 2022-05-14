@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 22:47:06 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/12 16:09:54 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/12 16:18:54 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat()
+WrongCat::WrongCat()
 {
-    std::cout << "Cat constructor was called" << std::endl;
-    type = "Cat";
+    std::cout << "WrongCat constructor was called" << std::endl;
+    type = "WrongCat";
 }
 
-Cat::Cat(const Cat &original) : Animal(original)
+WrongCat::WrongCat(const WrongCat &original) : WrongAnimal(original)
 {
-    std::cout << "Cat constructor was called" << std::endl;
+    std::cout << "WrongCat constructor was called" << std::endl;
 }
 
-void Cat::operator=(const Cat &original)
+void WrongCat::operator=(const WrongCat &original)
 {
-    Animal::operator=(original);
-    std::cout << "Cat assignment operator was called" << std::endl;
+    WrongAnimal::operator=(original);
+    std::cout << "WrongCat assignment operator was called" << std::endl;
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-    std::cout << "Cat destructor was called" << std::endl;
+    std::cout << "WrongCat destructor was called" << std::endl;
 }
 
-void Cat::makeSound() const
+void WrongCat::makeSound() const
 {
     std::cout << "Meow" << std::endl;
 }

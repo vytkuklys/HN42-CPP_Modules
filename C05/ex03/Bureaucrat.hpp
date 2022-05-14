@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:25:10 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/22 17:19:04 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/16 18:48:48 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ public:
         ~GradeTooHighException()_NOEXCEPT;
 
         GradeTooHighException &operator=(const GradeTooHighException &original);
+        void printshit();
     };
     Bureaucrat &operator=(const Bureaucrat &original);
     Bureaucrat operator++();

@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:25:10 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/22 17:18:11 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/16 18:58:40 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
     Form(const Form &original);
     Form(const std::string &name, int const signing_grade, int const executing_grade);
     Form(const std::string &name, const std::string &target, int const signing_grade, int const executing_grade);
-    virtual ~Form();
+    ~Form();
 
     Form &operator=(const Form &original);
     std::string getName() const;
@@ -65,6 +65,7 @@ public:
         ~GradeTooHighException()_NOEXCEPT;
 
         GradeTooHighException &operator=(const GradeTooHighException &original);
+        void printshit();
     };
 
     class UnsignedFormException : std::exception

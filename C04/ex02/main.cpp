@@ -6,7 +6,7 @@
 /*   By: vkuklys <vkuklys@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 22:57:10 by vkuklys           #+#    #+#             */
-/*   Updated: 2021/12/13 20:38:52 by vkuklys          ###   ########.fr       */
+/*   Updated: 2021/12/13 20:38:27 by vkuklys          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 int main(void)
 {
     // Animal test;
+
     const Animal* arr[4];
     for(int i = 0; i < 4; i++)
     {
